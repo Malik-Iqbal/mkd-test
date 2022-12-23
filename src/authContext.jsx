@@ -27,6 +27,7 @@ const reducer = (state, action) => {
         ...state,
         isAuthenticated: false,
         user: null,
+        
       };
     default:
       return state;
@@ -36,12 +37,14 @@ const reducer = (state, action) => {
 let sdk = new MkdSDK();
 
 export const tokenExpireError = (dispatch, errorMessage) => {
-  const role = localStorage.getItem("role");
+  // const role = localStorage.getItem("role");
   if (errorMessage === "TOKEN_EXPIRED") {
     dispatch({
       type: "Logout",
+      isAuthenticated: false,
     });
-    window.location.href = "/" + role + "/login";
+    localStorage.clear();
+    window.location.href = "/admin/login";
   }
 };
 

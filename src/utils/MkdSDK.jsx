@@ -16,8 +16,6 @@ export default function MkdSDK() {
   this.login = async function (email, password, role) {
     //TODO
     // login API
-    console.log(email, password, role, "role------");
-
     
     const apiResponse = await fetch(
       "https://reacttask.mkdlabs.com/v2/api/lambda/login",
